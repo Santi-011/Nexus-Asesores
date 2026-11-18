@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Nexus Asesores - catálogo y administración de vehículos">
+
+    <title>Nexus Asesores</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <!--Enlace para accesibilidad-->
+    <a class="salto-contenido" href="#contenido">
+        
+    </a>
+
+    <!--Menu Superior-->
+
+    <header class="cabecera">
+
+        <div class="cabecera__marca"> 
+
+            <div class="cabecera__logo"><img src="img/logo.png" alt="Nexus Asesores" onerror="this.onerror=null;this.src='img/logo-respaldo.svg'"></div>
+
+        </div>
+
+        <nav class="menu-superior" aria-label="Navegacion global">
+            <ul class="menu-superior__lista">
+
+                <li>
+                    <a href="#home">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="#contacto">Mi cuenta</a>
+                </li>
+
+                <li>
+                    <a href="#contacto">Cotizar</a>
+                </li>
+
+                <li>
+                    <a href="#contacto">Ayuda</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!--Contenido Principal-->
+    <div class="estructura">
+
+        <!--Menu Vertical-->
+        <aside class="menu-lateral">
+
+            <nav aria-label="Navegacion de secciones">
+                <ul class="menu-lateral__lista">
+
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#catalogo">Catalogo</a>
+                    </li>
+
+                    <li>
+                        <a href="#especificaciones">Especificaciones</a>
+                    </li>
+
+                    <li>
+                        <a href="#promociones">Promociones</a>
+                    </li>
+
+                     <li>
+                        <a href="#indicadores">Indicadores</a>
+                    </li>
+
+                    <li>
+                        <a href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <div class="filtros">
+
+                <h3>Filtrar categorias</h3>
+
+                <div id="filtros-categorias"></div>
+            </div>
+
+            <div class="resumen-inventario">
+
+                <h3>Resumen inventario</h3>
+
+                <p>Vehiculos registrados: <strong id="resumen-total">0</strong></p>
+            
+                <p>Vehiculos agotados: <strong id="resumen-agotados">0</strong></p>
+
+                <p>Unidades disponibles: <strong id="resumen-unidades">0</strong></p>
+            
+                <p>Valor del inventario: <strong id="resumen-valor">0</strong></p>
+            </div>
+        </aside>
+
+
+        <!--Main-->
+
+        <main id="contenido">
+
+            <!--Banner-->
+
+            <section id="home" class="seccion banner">
+
+                <div class="banner__contenido">
+
+                    <p class="banner__marca">NEXUS ASESORES</p>
+
+                    <h2 class="banner__titulo">COMPRA O VENDE TU VEHICULO CON CONFIANZA</h2> 
+
+                    <p class="banner__texto">Te acompañamos durante todo el proceso para que tomes la mejor decisión.</p>
+
+                    <a class="boton" href="#catalogo">Ver vehiculos</a>
+                </div>
+
+                <div class="banner__imagen"> <img src="img/bmwx3.png" alt="BMW X3" onerror="this.onerror=null;this.src='img/vehiculo-respaldo.svg'"></div>
+            </section>
+
+
+            <!--Agregar inventario-->
+
+            <section id="agregar-vehiculo" class="seccion-formulario">
+
+                <div class="formulario-encabezado">
+                    
+                    <span>INVENTARIO</span>
+                    <h2>Agregar vehiculos</h2>
+                    <p>Registra un nuevo vehiculo en nuestro catálogo</p>
+
+                </div>
+
+                <form id="formulario-vehiculo">
+
+                    <div class="formulario-grid">
+
+                        <div class="campo-formulario">
+                        <label for="nombre-vehiculo">Nombre</label>
+                        <input type="text"
+                        id="nombre-vehiculo">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="precio-vehiculo">Precio</label>
+                        <input type="number"
+                        id="precio-vehiculo">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="categoria-vehiculo">Categoria</label>
+                        <input type="text"
+                        id="categoria-vehiculo">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="cantidad-vehiculo">Cantidad</label>
+                        <input type="number"
+                        id="cantidad-vehiculo">
+                    </div>
+
+                    <div class="campo-formulario campo-formulario--completo">
+                        <label for="imagen-vehiculo">Ruta de la imagen</label>
+                        <input type="text"
+                        id="imagen-vehiculo"
+                        placeholder="img/vehiculo.jpeg">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="codigo-vehiculo">Codigo de inventario</label>
+                        <input type="text"
+                        id="codigo-vehiculo"
+                        placeholder="Ej. NX-007"
+                        required>
+                    </div>
+
+
+                    <div class="formulario__acciones">
+
+                        <button type="submit" class="boton-principal">Agregar vehiculo</button>
+
+                    </div>
+
+                    <p id="mensaje-formulario"></p>
+
+
+                </form>
+            </section>
+
+
+
+            <!--Catalogo-->
+
+            <section id="catalogo">
+
+                <h2 class="seccion__titulo">Vehiculos disponibles</h2>
+
+                <p class="seccion__texto">Conoce algunos de nuestros modelos mas destacados</p>
+
+                <div class="buscador">
+
+                    <label for="buscar-vehiculo">Buscar vehiculo</label>
+                    <input type="search"
+                    id="buscar-vehiculo"
+                    placeholder="Ej: Mazda, BMW...">
+                </div>
+
+                <p id="contador-resultados"></p>
+
+                <p id="mensaje-sin-resultados" hidden>No se encontraron vehiculos</p>
+
+                <div id ="contenedor-vehiculos" class="rejilla-tarjetas"></div>
+
+            </section>
+
+
+            <!--Inventario actualizable-->
+
+            <section id="resumen-tabla" class="seccion-inventario">
+
+                <div class="inventario-encabezado">
+
+                    <h2>Inventario</h2>
+
+                    <p>Consulta los vehiculos registrados, sus precios y disponibilidad.</p>
+                </div>
+                
+
+                <!-- Controles independientes para búsqueda, filtros, orden y paginación -->
+                <div class="tabla-controles">
+                    <div class="campo-formulario">
+                        <label for="tabla-busqueda">Buscar por nombre o código</label>
+                        <input id="tabla-busqueda" type="search" placeholder="Ej. Mazda o NX-001">
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="tabla-categoria">Categoría</label>
+                        <select id="tabla-categoria"><option value="Todos">Todas las categorías</option></select>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="tabla-estado">Estado</label>
+                        <select id="tabla-estado">
+                            <option value="Todos">Todos</option>
+                            <option value="Disponible">Disponible</option>
+                            <option value="Agotado">Agotado</option>
+                        </select>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="tabla-orden">Ordenar por</label>
+                        <select id="tabla-orden">
+                            <option value="nombre">Nombre A-Z</option>
+                            <option value="codigo">Código A-Z</option>
+                            <option value="precio-asc">Precio menor a mayor</option>
+                            <option value="precio-desc">Precio mayor a menor</option>
+                            <option value="cantidad-asc">Cantidad menor a mayor</option>
+                            <option value="cantidad-desc">Cantidad mayor a menor</option>
+                        </select>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="tabla-tamano">Registros por página</label>
+                        <select id="tabla-tamano">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tabla-contenedor">
+
+                    <table class="tabla-inventario">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Vehiculo</th>
+                                <th>Categoria</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="cuerpo-tabla"></tbody>
+                    </table>
+                </div>
+                <div class="tabla-pie">
+                    <p id="tabla-resultados" role="status"></p>
+                    <div class="tabla-paginacion">
+                        <button type="button" id="tabla-anterior">Anterior</button>
+                        <span id="tabla-pagina">Página 1 de 1</span>
+                        <button type="button" id="tabla-siguiente">Siguiente</button>
+                    </div>
+                    <button type="button" id="tabla-exportar" class="boton-principal">Exportar CSV</button>
+                </div>
+            </section>
+
+
+            <!-- API REST -->
+            <section id="marcas-api" class="seccion-inventario" aria-labelledby="api-titulo">
+                <div class="inventario-encabezado">
+                    <h2 id="api-titulo">Marcas de automóviles - API pública</h2>
+                    <p>Consulta informativa de fabricantes mediante el servicio NHTSA vPIC.</p>
+                </div>
+                <p id="api-estado" class="api-estado" role="status" aria-live="polite">Preparando consulta...</p>
+                <ul id="api-marcas" class="api-marcas"></ul>
+                <button type="button" id="api-recargar" class="boton-principal">Volver a consultar</button>
+            </section>
+
+
+            <!--Contacto-->
+
+            <section id="contacto" class="seccion-contacto">
+
+                <div class="contacto-encabezado">
+
+                    <h2>Contáctanos</h2>
+
+                     <p>Si deseas comprar o vender tu vehiculo dejanos tus datos y te asesoramos.</p>
+                </div>
+
+
+                <form id="formulario-contacto">
+
+                    <div class="formulario-grid">
+                        
+                    <div class="campo-formulario">
+                        <label for="contacto-nombre">Nombre</label>
+                        <input type="text"
+                        id="contacto-nombre"
+                        minlength="3"
+                        required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="contacto-correo">Correo electronico</label>
+                        <input type="email"
+                        id="contacto-correo"
+                        required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="contacto-telefono">Teléfono</label>
+                        <input type="tel"
+                        id="contacto-telefono"
+                        pattern="[0-9]{10}"
+                        title="Ingresa un numero de 10 digitos"
+                        required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="contacto-mensaje">Mensaje</label>
+                        <textarea id="contacto-mensaje"
+                        minlength="10"
+                        required></textarea>
+                    </div>
+
+                    </div>
+
+                    <div class="formulario__acciones">
+
+                        <button type="submit" class="boton-principal">Enviar mensaje</button>
+
+                    </div>
+                    
+                    <p id="mensaje-contacto" role="status"></p>
+
+                </form>
+            </section>
+
+
+
+            <!--Especificaciones-->
+
+            <section id="especificaciones" class="seccion">
+
+                <h2 class="seccion__titulo">Especificaciones tecnicas</h2>
+
+                <p class="seccion__texto">Informacion general de nuestros vehiculos destacados</p>
+
+                <div class="especificaciones">
+
+                    <article class="especificacion">
+
+                        <h3>BMW 218i</h3>
+
+                        <dl>
+                            <dt>Tracción</dt>
+                            <dd>Delantera</dd>
+
+                            <dt>Transmisión</dt>
+                            <dd>Automatica</dd>
+
+                            <dt>Carrocería</dt>
+                            <dd>Sedan</dd>
+
+                            <dt>Potencia</dt>
+                            <dd>140 HP</dd>
+                        </dl>
+                    </article>
+
+                    <article class="especificacion">
+
+                        <h3>Nissan Patrol</h3>
+
+                        <dl>
+                            <dt>Tracción</dt>
+                            <dd>4x4</dd>
+
+                            <dt>Transmisión</dt>
+                            <dd>Mecanica</dd>
+
+                            <dt>Carrocería</dt>
+                            <dd>Station Wagon</dd>
+
+                            <dt>Potencia</dt>
+                            <dd>245 HP</dd>
+                        </dl>
+                    </article> 
+                </div>
+            </section>
+
+
+            <!--Promociones-->
+
+            <section id="promociones" class="seccion">
+
+                <h2 class="seccion__titulo">Promociones</h2>
+
+                <p class="seccion__texto">Nuestro <strong>catálogo</strong> de modelos mas solicitados</p>
+
+                <!--Lista ordenada-->
+                <ol class="ranking">
+
+                    <li>
+                        <strong>BMW 218i Gran Coupe</strong> - SUV familiar y versatil
+                    </li>
+
+                    <li>
+                        <strong>Nissan Patrol</strong> - Compacto y moderno
+                    </li>
+
+                    <li>
+                        <strong>Chevrolet Tracker LT</strong> - Diseño deportivo
+                    </li>
+
+                    <li>
+                        <strong>Mazda CX-5 Grand Touring</strong> - Confort y tecnologia
+                    </li>
+
+                </ol>
+
+                <p class="promocion__nota">
+                    <em>Consulta disponibilidad y condiciones de cada promocion</em>
+                </p>
+            </section>
+
+
+            <!--Indicadores-->
+
+            <section id="indicadores" class="seccion">
+
+                <h2 class="seccion__titulo">Indicadores de referencia</h2>
+
+                <p class="seccion__texto">Conoce algunos indicadores de nuestro vehiculo destacado</p>
+
+                <div class="indicadores">
+
+                    <!--Progress-->
+                    <article class="indicador">
+
+                        <h3>Stock Mazda CX-5</h3>
+
+                        <p>Disponibilidad actual:</p>
+
+                        <progress
+                        value="70"
+                        max="100">
+                        70%</progress>
+
+                        <p class="indicador__valor">70% de disponibilidad</p>
+                    </article>
+
+                    <!--Meter-->
+                    <article class="indicador">
+
+                        <h3>Satisfaccion de clientes</h3>
+
+                        <p>Calificacion promedio:</p>
+
+                        <meter
+                        min="0"
+                        max="5"
+                        value="4.7">
+                        4.7 de 5</meter>
+
+                        <p class="indicador__valor">4.7 / 5</p>
+                    </article>
+                </div>
+            </section>
+
+
+            <!--Tabla de garantias-->
+
+            <section class="seccion">
+
+                <h2 class="seccion__titulo">Planes de garantia</h2>
+
+                <div class="tabla-contenedor">
+
+                    <table class="tabla">
+
+                        <caption>Comparacion de planes de garantia</caption>
+
+                        <thead>
+                            
+                            <tr>
+                                <th>Plan</th>
+                                <th>Duracion</th>
+                                <th>Asistencia</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Basico</td>
+                                <td>1 año</td>
+                                <td>Incluida</td>
+                                <td>1.500.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>Pro</td>
+                                <td>3 años</td>
+                                <td>Incluidos</td>
+                                <td>3.000.000</td>
+                            </tr>
+
+                            <tr>
+                                <td>Premium</td>
+                                <td>5 años</td>
+                                <td>Completa</td>
+                                <td>5.000.000</td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+
+                            <tr>
+                                <td colspan="4">Los precios incluyen IVA</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+
+
+        </main>
+    </div>
+
+    <!--Footer-->
+
+    <footer class="pie">
+
+        <p class="pie__marca"><strong>Nexus Asesores</strong></p>
+
+        <address class="pie__direccion">Medellín, Colombia</address>
+
+        <p class="pie__redes">Canales oficiales: pendientes de confirmar</p>
+
+        <p class="pie__copyright">&copy; 2026 Nexus Asesores. Todos los derechos reservados.</p>
+        </footer>
+
+
+    <script type="module" src="./js/controlador.js"></script>
+</body>
+
+</html>
