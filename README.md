@@ -3,8 +3,9 @@
 **Institución:** Institución Universitaria Pascual Bravo  
 **Curso:** Herramientas de Programación III (ET0056), grupo 053, 2026-2  
 **Docente:** Luis Fernando Londoño López  
-**Equipo:** Santiago Baena Rodriguez 
-**Aplicación publicada:** https://santi-011.github.io/Nexus-Asesores/
+**Equipo:** Santiago Baena Rodriguez  
+**Aplicación publicada:** https://santi-011.github.io/Nexus-Asesores/  
+**Repositorio:** https://github.com/Santi-011/Nexus-Asesores
 
 ## Descripción
 Aplicación web de catálogo y administración de vehículos. Permite registrar, consultar, editar y eliminar vehículos, filtrar catálogo, calcular indicadores, usar tabla con búsqueda y filtros combinados, ordenar, paginar y exportar CSV. Consulta marcas reales de automóviles mediante una API REST pública.
